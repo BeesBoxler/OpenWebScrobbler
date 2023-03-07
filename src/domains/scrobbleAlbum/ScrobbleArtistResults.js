@@ -10,6 +10,8 @@ import { clearAlbumsArtistSearch, setArtistQuery } from 'store/actions/albumActi
 
 import AlbumBreadcrumb from './partials/AlbumBreadcrumb';
 import AlbumResults from './partials/AlbumResults';
+import SetlistResults from './partials/SetlistResults';
+import { Row } from 'reactstrap';
 
 export function ScrobbleArtistResults() {
   const dispatch = useDispatch();
@@ -55,7 +57,16 @@ export function ScrobbleArtistResults() {
       <h3 className="mt-3 mb-0">
         {searchQuery.artist && <Trans i18nKey="topAlbumsBy" t={t} values={{ nameOfArtist: searchQuery.artist }} />}
       </h3>
-      <AlbumResults query={artist} useFullWidth={true} topAlbums={true} />
+      <Row className="mb-4">
+        <div className="col-md-8">
+          <h3 className="mt-3 mb-0">{t('album', { count: 2 })}</h3>
+          <AlbumResults query={artist} useFullWidth={false} topAlbums={true} />
+        </div>
+        <div className="col-md-4">
+          <h3 className="mt-3 mb-0">{t('recentShows', { count: 2 })}</h3>
+          <SetlistResults query={artist} />
+        </div>
+      </Row>
     </React.Fragment>
   );
 }

@@ -13,7 +13,7 @@ import {
   PROVIDER_DISCOGS,
 } from 'Constants';
 
-type UserSettings = {
+export type UserSettings = {
   dataProvider: 'discogs' | 'lastfm';
   isLoggedIn: boolean | null;
   name: string;

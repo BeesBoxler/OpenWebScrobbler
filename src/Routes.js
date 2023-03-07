@@ -12,6 +12,7 @@ import {
   ScrobbleAlbumTracklist,
 } from 'domains/scrobbleAlbum';
 import { ScrobbleUserSearch, ScrobbleUserResults } from './domains/scrobbleUser';
+import { ScrobbleSetlistTracklist } from 'domains/scrobbleAlbum/ScrobbleSetlistTracklist';
 
 // import Spinner from 'components/Spinner';
 
@@ -30,6 +31,9 @@ export default function Routes() {
       <Route exact path="/scrobble/song" element={<ScrobbleSong />} />
       <Route exact path="/scrobble/album" element={<PrivateRoute using={ScrobbleAlbumSearch} />} />
       <Route exact path="/scrobble/album/search/:albumName" element={<PrivateRoute using={ScrobbleAlbumResults} />} />
+      <Route path="/scrobble/setlist">
+        <Route exact path=":setlist" element={<PrivateRoute using={ScrobbleSetlistTracklist} />} />
+      </Route>
       <Route path="/scrobble/artist">
         <Route exact path=":artistName" element={<PrivateRoute using={ScrobbleArtistResults} />} />
         <Route exact path="mbid/:mbid" element={<PrivateRoute using={ScrobbleArtistResults} />} />

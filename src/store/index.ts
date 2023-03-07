@@ -12,7 +12,18 @@ import artistReducer from './reducers/artistReducer';
 import scrobbleReducer from './reducers/scrobbleReducer';
 import settingsReducer from './reducers/settingsReducer';
 import updatesReducer from './reducers/updatesReducer';
-import userReducer from './reducers/userReducer';
+import userReducer, { UserSettings } from './reducers/userReducer';
+import { setlistReducer, SetlistState } from './reducers/setlistReducer';
+
+export type Action<T> = {
+  type: T,
+  payload,
+}
+
+export type State = {
+  setlist: SetlistState,
+  settings: UserSettings,
+}
 
 const middlewares = [createDebounce(), promise];
 const isDevEnvironment = process.env.NODE_ENV === 'development';
@@ -28,6 +39,7 @@ const persistedState = loadState();
 const store = createStore(
   combineReducers({
     album: albumReducer,
+    setlist: setlistReducer,
     alerts: alertReducer,
     artist: artistReducer,
     scrobbles: scrobbleReducer,

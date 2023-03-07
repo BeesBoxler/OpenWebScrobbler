@@ -1,6 +1,7 @@
 // Various settings
 export const AUDIOSCROBBLER_API_URL = 'https://ws.audioscrobbler.com/2.0/';
 export const DISCOGS_API_URL = '/api/v2/discogs.php';
+export const SETLISTFM_API_URL = '/api/v2/setlistfm.php'; // 'https://api.setlist.fm/rest/1.0/';
 export const LASTFM_AUTH_URL =
   `https://www.last.fm/api/auth/?api_key=${process.env.REACT_APP_LASTFM_API_KEY}` +
   `&cb=${window.location.protocol}//${window.location.host}/`;
@@ -16,6 +17,7 @@ export const DEFAULT_SONG_DURATION = 3 * 60; // ToDo: use this value when skippi
 
 export const PROVIDER_LASTFM = 'lastfm';
 export const PROVIDER_DISCOGS = 'discogs';
+export const PROVIDER_SETLISTFM = 'setlistfm';
 
 // Albums store
 export const GET_ALBUM_INFO_LASTFM = 'GET_ALBUM_INFO_LASTFM'; // remove
